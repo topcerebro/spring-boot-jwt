@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    jdbcUrl: jdbc:mysql://localhost:3306/springbootjwt
+    username: root
+    password: Magnolia123$
+    maximumPoolSize: 10
+    minimumIdlePoolSize: 3 
+    idleConnectionTimeOut : 6000
+
+    
