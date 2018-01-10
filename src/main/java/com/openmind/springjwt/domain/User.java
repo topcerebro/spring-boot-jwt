@@ -1,10 +1,27 @@
 package com.openmind.springjwt.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
-
+@JsonRootName("")
 public class User {
-    
+	
+	public User() {}
+	
+	public User(String userName, String password, String authorities) {
+		super();
+		this.userName = userName;
+		this.password = password;
+		this.authorities = authorities;
+	}
+
+	public User(int id, String userName, String password, String authorities) {
+		this.id = id;
+		this.userName = userName;
+		this.password = password;
+		this.authorities = authorities;
+	}
+
 	@JsonProperty("user-id")
 	private int id;
 	

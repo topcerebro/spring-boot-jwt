@@ -66,6 +66,7 @@ public class UserControllerResource {
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Path("/create")
 	public Response createUser(User user) {
 
 		com.openmind.springjwt.springbootjwt.jpa.entities.User entity = new com.openmind.springjwt.springbootjwt.jpa.entities.User();
@@ -82,6 +83,22 @@ public class UserControllerResource {
 			user.setAuthorities(newUser.getAuthorities());
 
 			return Response.ok(user).build();
+
+		} catch (RuntimeException e) {
+			return Response.status(Status.ERROR).build();
+		}
+
+	}
+	
+	
+	@POST
+	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Path("/login")
+	public Response loginUser(User user) {
+
+		try {
+			return Response.ok("login success").build();
 
 		} catch (RuntimeException e) {
 			return Response.status(Status.ERROR).build();
