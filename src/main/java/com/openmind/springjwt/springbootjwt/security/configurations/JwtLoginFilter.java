@@ -47,8 +47,6 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
 		}
 		ObjectMapper objectMapper = new ObjectMapper();
 		
-//		objectMapper.configure(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT, true);
-		
 		objectMapper.readValue(sbf.toString().getBytes(), com.openmind.springjwt.domain.User.class);
 		
 		com.openmind.springjwt.domain.User user = objectMapper.readValue(sbf.toString().getBytes(), com.openmind.springjwt.domain.User.class);

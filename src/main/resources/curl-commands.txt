@@ -1,0 +1,22 @@
+create a user
+
+curl -H "Content-Type: application/json" -X POST -d '{
+  "user-name": "gracehopper",
+  "user-password": "gracehopper",
+  "user-authorities": "HAS_ROLE_USER"
+}' http://localhost:8080/users/create
+
+2) login and obtain an authentication token
+
+curl -i -H "Content-Type: application/json" -X POST -d '{
+  "user-name": "gracehopper",
+  "user-password": "gracehopper",
+}' http://localhost:8080/users/login
+
+
+
+// Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJncmFjZWhvcHBlciIsImV4cCI6MTUxNjQ2NzY2NH0.piGAMCqdRTqXkDGT4VnLaxljztmMU__D8DXTXdvXnmxzYKNzLBxl3WAzGYfdvbNapwITzLlAheL8nUfdJyT6dw
+
+curl -H "Content-Type: application/json" -X GET http://localhost:8080/pets
+
+curl -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJncmFjZWhvcHBlciIsImV4cCI6MTUxNjQ2NzY2NH0.piGAMCqdRTqXkDGT4VnLaxljztmMU__D8DXTXdvXnmxzYKNzLBxl3WAzGYfdvbNapwITzLlAheL8nUfdJyT6dw" -X GET http://localhost:8080/pets
