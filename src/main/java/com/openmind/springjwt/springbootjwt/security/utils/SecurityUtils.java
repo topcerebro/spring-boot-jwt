@@ -5,10 +5,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
-public class SecurityUtils {
+public final class SecurityUtils {
+	/**
+	* Privents instantiation of this class.
+	*/
+	private SecurityUtils (){
+	}
 
 	@Bean
-	public BCryptPasswordEncoder bcrypPasswordEncoder() {
+	public static BCryptPasswordEncoder bcrypPasswordEncoder() {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
 		return encoder;
 	}
